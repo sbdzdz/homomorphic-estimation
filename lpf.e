@@ -1,7 +1,17 @@
 function gaussian(N, sigma)
 
-indX = -floor(N[2]/2):floor(N[2]/2);
-indY = -floor(N[1]/2):floor(N[1]/2);
+if (mod(N[2], 2) == 0) then
+  indX = [-N[2]/2+0.5:-0.5, 0.5:N[2]/2-0.5];
+else
+  indX = -floor(N[2]/2):floor(N[2]/2);
+endif
+
+if (mod(N[1], 2) == 0) then
+  indY = [-N[1]/2+0.5:-0.5, 0.5:N[1]/2-0.5];
+else
+  indY = -floor(N[1]/2):floor(N[1]/2);
+endif
+
 X = zeros(N[1],N[2]);
 Y = zeros(N[1],N[2]);
 
@@ -69,7 +79,7 @@ N = size(I)[2];
 
 h=gaussian(size(I), sigma);
 h=h/(max(max(h)'));
-if(M==1)||(M==1) then
+if(M==1)||(N==1) then
   lRnF=fftshift(conj(fft(I)));
   lRnF2=lRnF*h;
   If=re(ifft(fftshift(conj(lRnF2))));
@@ -77,6 +87,7 @@ else
   lRnF=fftshift2(fft2(I));
   lRnF2=lRnF*h;
   If=re(ifft2(fftshift2(lRnF2)));
+endif
 return If;
 
 
