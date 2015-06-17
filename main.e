@@ -26,6 +26,7 @@ outRician = "../homomorphic_verification/MR_Rician_Map.csv";
 t1 = time();
 {MapG, MapR} = homomorphicEstimation(I, SNR, LPF, emFilterType, emWindowSize, emIterations, lpfF, lpfFSNR, lpfFRice);
 t2 = time();
+
 writematrix(MapG, outGaussian);
 writematrix(MapR, outRician);
 t2-t1
