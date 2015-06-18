@@ -1,4 +1,4 @@
-function homomorphicEstimation(I, SNR=0, LPF=3.4, emFilterType=2, emWindowSize=3, emIterations=10, lpfF=3.4, lpfFSNR=1.2, lpfFRice=5.4)
+function homomorphicEstimation(I, SNR=0, LPF=3.4, emFilterType=2, emWindowSize=3, emIterations=10, lpfFSNR=1.2, lpfFRice=5.4)
 
   eg = 0.5772156649015328606;
 
